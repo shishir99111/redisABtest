@@ -1,0 +1,29 @@
+<head>
+    <title>Dripshop</title>
+</head>
+<body>
+    <h1> Hello</h1>
+</layout>
+</body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="node_modules/react/umd/react.development.js"></script>
+<script crossorigin src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
+<!-- <script type="module" crossorigin src="./layouts/appClient.js"></script> -->
+<script>
+    const layout1 = React.createElement('h1', {}, 'Layout1')
+    const layout2 = React.createElement('h1', {}, 'Layout2')
+    const layout3 = React.createElement('h1', {}, 'Layout3')
+    const layout = ''
+
+    const res = fetch('/api')
+    .then(response => response.json())
+    .then(json => {
+        console.log('data', json.layout);
+        const root = ReactDOM.createRoot(document.querySelector('#root'));
+        root.render(json.layout == 0 ? layout1 : json.layout == 1 ? layout2 : layout3);
+    })
+    .catch(error => console.error(error));
+    
+</script>

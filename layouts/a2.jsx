@@ -1,0 +1,1 @@
+return () => <h1>Layout2</h1>
